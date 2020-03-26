@@ -60,7 +60,7 @@ namespace scallion
 		public class RandomList<T>
 		{
 			//added line
-			private System.Security.Cryptography.RNGCryptoServiceProvider _rng = System.Security.Cryptography.RNGCryptoServiceProvider();
+			private System.Security.Cryptography.RNGCryptoServiceProvider _rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
 			//added line
 			private System.Random _rnd = new System.Random(); 
 			private List<T> _list = new List<T>();
