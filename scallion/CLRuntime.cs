@@ -59,6 +59,9 @@ namespace scallion
 
 		public class RandomList<T>
 		{
+			//added line
+			private System.Security.Cryptography.RNGCryptoServiceProvider _rng = System.Security.Cryptography.RNGCryptoServiceProvider();
+			//added line
 			private System.Random _rnd = new System.Random(); 
 			private List<T> _list = new List<T>();
 			public void Push(T value)
@@ -68,7 +71,8 @@ namespace scallion
 			public T Pop()
 			{
 				if(_list.Count <= 0) return default(T);
-				T ret = _list[_rnd.Next(0, _list.Count)];
+				//changed line _rnd to _rng
+				T ret = _list[_rng.Next(0, _list.Count)];
 				_list.Remove(ret);
 				return ret;
 			}
