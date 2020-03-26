@@ -72,7 +72,10 @@ namespace scallion
 			{
 				if(_list.Count <= 0) return default(T);
 				//changed line _rnd to _rng
-				T ret = _list[_rng.Next(0, _list.Count)];
+				var byteArray = new byte[_list.Count];
+				_rng.GetBytes(byteArray);
+				var randomInteger = BitConverter.ToUInt32(byteArray, 0);
+				T ret = _list[randomInteger];
 				_list.Remove(ret);
 				return ret;
 			}
